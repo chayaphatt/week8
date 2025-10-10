@@ -2,37 +2,37 @@
 	"top1":{
 		"brand": "A.K.O.O Clothing",
 		"price":"850",
-		"img":"pic/top1.jpg"},
+		"img":"top1.jpg"},
 	"top2":{
 		"brand": "B.K.T Clothing",
 		"price":"790",
-		"img":"pic/top2.jpg"},
+		"img":"top2.jpg"},
     "top3":{
 		"brand": "B.B.J Clothing",
 		"price":"990",
-		"img":"pic/top3.jpg"},
+		"img":"top3.jpg"},
 	"top4":{
 		"brand": "C.D.O Clothing",
 		"price":"900",
-		"img":"pic/top4.jpg"},
+		"img":"top4.jpg"},
 	"top5":{
 		"brand": "L.L.I Clothing",
 		"price":"1,250",
-		"img":"pic/top5.jpg"},
+		"img":"top5.jpg"},
 	"top6":{
 		"brand": "P.E.T Clothing",
 		"price":"1,590",
-		"img":"pic/top6.jpg"},
+		"img":"top6.jpg"},
     "top7":{
 		"brand": "C.A.L.L Clothing",
 		"price":"899",
-		"img":"pic/top7.jpg"},
+		"img":"top7.jpg"},
 	"top8":{
 		"brand": "F.F.K Clothing",
 		"price":"790",
-		"img":"pic/top8.jpg"},
+		"img":"top8.jpg"},
 	"top9":{
 		"brand": "N.E.E Clothing",
 		"price":"1,390",
-		"img":"pic/top9.jpg"}
+		"img":"top9.jpg"}
 }
