@@ -1,25 +1,398 @@
-#nav-top{
-	width: 100%;
-	height: 50px;
+/* ==========================================================================
+   BKT CLOTHING — MID-CENTURY MODERN COLLECTION (WEEK 8)
+   Dark Walnut, Olive Noir & Warm Retro Accents
+   ========================================================================== */
+
+/* --- 1. Global Reset & Dark Mid-Century Theme Variables --- */
+:root {
+    /* Palette: Dark Mid-Century Modern (Rich Walnut & Smoky Olive Noir) */
+    --bg-dark: #1A1815;
+    --bg-card: #FAF7F2;
+    --bg-subtle: #ECE5DA;
+    
+    /* Iconic Mid-Century Accent Colors */
+    --color-terracotta: #C85A32;
+    --color-olive: #4E5C44;
+    --color-mustard: #C98E34;
+    --color-teak-dark: #24201D;
+    
+    /* Text Hierarchy */
+    --text-light: #F8F5F0;
+    --text-muted-light: #B0AAA0;
+    --text-card-main: #24201D;
+    --text-card-muted: #6B635B;
+    
+    /* Borders */
+    --border-dark: rgba(255, 255, 255, 0.08);
+    --border-card: rgba(36, 32, 29, 0.08);
+    --border-hover: rgba(200, 90, 50, 0.45);
+    
+    /* Layered Deep Shadows on Dark Canvas */
+    --shadow-card: 
+        0 4px 16px rgba(0, 0, 0, 0.35),
+        0 14px 34px -4px rgba(0, 0, 0, 0.45);
+        
+    --shadow-hover: 
+        0 8px 24px rgba(0, 0, 0, 0.45),
+        0 24px 50px -4px rgba(0, 0, 0, 0.60),
+        0 0 28px rgba(200, 90, 50, 0.22);
+
+    /* Border Radii */
+    --radius-card: 16px;
+    --radius-img: 12px;
+    --radius-pill: 999px;
+    
+    /* Luxury Easing */
+    --ease-retro: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-#container{
-	width:100%;
-	display: flex;
-	justify-content: center;
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-#layer{
-	display: flex;
-	width:70%;
-	flex-wrap: wrap;
-	justify-content: center;
+/* Dark Mid-Century Background with Rich Walnut & Deep Olive Ambient Vignette */
+body {
+    background-color: var(--bg-dark);
+    background-image: 
+        radial-gradient(circle at 18% 16%, rgba(52, 60, 44, 0.45) 0%, transparent 48%),
+        radial-gradient(circle at 82% 14%, rgba(135, 65, 38, 0.35) 0%, transparent 45%),
+        radial-gradient(circle at 50% 40%, rgba(38, 34, 30, 0.85) 0%, transparent 58%),
+        radial-gradient(circle at 76% 84%, rgba(46, 55, 38, 0.40) 0%, transparent 48%),
+        radial-gradient(circle at 20% 86%, rgba(120, 58, 34, 0.30) 0%, transparent 46%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: var(--text-light);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-#layer div{
-	width:200px;
-	border: 2px solid black;
-	height: 400px;
-	margin: 1%;
-	text-align: center;
+/* --- 2. Minimal Dark Navigation Header (#nav-top) --- */
+#nav-top {
+    background: rgba(26, 24, 21, 0.90);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-dark);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: color 0.25s ease;
+}
+
+.logo:hover {
+    color: var(--color-terracotta);
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    color: var(--text-muted-light);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 6px 0;
+    position: relative;
+    transition: color 0.25s ease;
+}
+
+/* Sliding terracotta underline animation */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2.5px;
+    background-color: var(--color-terracotta);
+    border-radius: 2px;
+    transition: width 0.3s var(--ease-retro);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--text-light);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* --- 3. Main Container & Title (#container) --- */
+#container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Bright Warm Earth-Tone Glassmorphic Hero Box (Compact & Balanced Padding) */
+.collection-title {
+    text-align: center;
+    max-width: 660px;
+    margin: 46px auto 34px;
+    padding: 34px 32px 30px;
+    background: rgba(253, 250, 245, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1.5px solid rgba(200, 90, 50, 0.45); /* Terracotta / Warm Bronze Border */
+    border-radius: 20px;
+    box-shadow: 
+        0 4px 20px -2px rgba(0, 0, 0, 0.35),
+        0 18px 44px -4px rgba(0, 0, 0, 0.45),
+        0 0 50px rgba(200, 90, 50, 0.28); /* Soft Terracotta Warm Glow */
+    position: relative;
+}
+
+.collection-title h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(2.4rem, 4.8vw, 3.2rem);
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: -0.01em;
+    color: #24201D; /* Deep Teak / Dark Wood, crisp contrast against the bright warm box */
+    margin: 0;
+    line-height: 1.1;
+}
+
+/* Retro Terracotta & Mustard Geometric Accent Line */
+.collection-title::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-terracotta) 0%, var(--color-mustard) 100%);
+    margin: 18px auto 0;
+    border-radius: 2px;
+}
+
+/* --- 4. Product Grid (#layer) --- */
+#layer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 230px);
+    justify-content: center;
+    gap: 36px 26px;
+    width: 100%;
+    margin: 10px auto 90px;
+}
+
+/* --- 5. Warm Ivory Floating Product Card (#layer > div) --- */
+#layer > div {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    outline: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: var(--radius-card);
+    padding: 14px 14px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.4s var(--ease-retro),
+                box-shadow 0.4s var(--ease-retro),
+                outline-color 0.3s ease;
+    cursor: pointer;
+    min-height: 350px;
+}
+
+/* Floating Card Hover Elevation */
+#layer > div:hover {
+    transform: translateY(-9px);
+    box-shadow: var(--shadow-hover);
+    outline-color: var(--border-hover);
+}
+
+/* Mid-Century Vintage Corner Badges */
+#layer > div::before {
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    z-index: 3;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 0.63rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    pointer-events: none;
+    transition: transform 0.35s var(--ease-retro);
+}
+
+/* Badge 1: Terracotta */
+#layer > div:nth-child(3n+1)::before {
+    content: "NEW EDITION";
+    background: var(--color-terracotta);
+    color: #FFFFFF;
+}
+
+/* Badge 2: Olive Green */
+#layer > div:nth-child(3n+2)::before {
+    content: "BEST SELLER";
+    background: var(--color-olive);
+    color: #FFFFFF;
+}
+
+/* Badge 3: Mustard Ochre */
+#layer > div:nth-child(3n+3)::before {
+    content: "ORIGINAL CRAFT";
+    background: var(--color-mustard);
+    color: var(--color-teak-dark);
+}
+
+#layer > div:hover::before {
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* --- 6. Product Image (#layer > div img) --- */
+#layer > div img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: var(--radius-img);
+    background-color: var(--bg-subtle);
+    display: block;
+    transition: transform 0.6s var(--ease-retro), filter 0.35s ease;
+}
+
+/* Smooth Image Zoom on Hover */
+#layer > div:hover img {
+    transform: scale(1.055);
+    filter: contrast(1.02);
+}
+
+/* --- 7. Product Info & Typography (#layer > div p) --- */
+#layer > div p {
+    margin: 0;
+}
+
+/* Brand Name */
+#layer > div p:first-of-type {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+#layer > div p:first-of-type b {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--text-card-main);
+    letter-spacing: -0.015em;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.25s ease;
+}
+
+#layer > div:hover p:first-of-type b {
+    color: var(--color-terracotta);
+}
+
+/* Price as a Warm Mid-Century Badge */
+#layer > div p:last-of-type {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 20px;
+    background: var(--bg-subtle);
+    border: 1px solid rgba(36, 32, 29, 0.10);
+    border-radius: var(--radius-pill);
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text-card-main);
+    letter-spacing: 0.02em;
+    margin-top: 4px;
+    transition: all 0.35s var(--ease-retro);
+    box-shadow: 0 2px 6px rgba(36, 32, 29, 0.04);
+}
+
+/* Interactive sliding arrow on button reveal */
+#layer > div p:last-of-type::after {
+    content: ' →';
+    display: inline-block;
+    opacity: 0;
+    width: 0;
+    transform: translateX(-4px);
+    transition: all 0.3s var(--ease-retro);
+}
+
+/* Price Badge Interactive Hover State */
+#layer > div:hover p:last-of-type {
+    background: var(--color-terracotta);
+    color: #FFFFFF;
+    border-color: var(--color-terracotta);
+    box-shadow: 0 8px 24px rgba(200, 90, 50, 0.35);
+    transform: translateY(-2px);
+    letter-spacing: 0.04em;
+}
+
+#layer > div:hover p:last-of-type::after {
+    opacity: 1;
+    width: 14px;
+    transform: translateX(2px);
+}
+
+/* --- 8. Responsive Adjustments --- */
+@media (max-width: 600px) {
+    .nav-container {
+        padding: 14px 16px;
+    }
+    .logo {
+        font-size: 1.15rem;
+    }
+    .nav-links {
+        gap: 18px;
+    }
+    .collection-title {
+        margin: 28px auto 20px;
+        padding: 26px 18px 22px;
+        border-radius: 18px;
+    }
+    .collection-title h1 {
+        font-size: 2.1rem;
+    }
+    .collection-title::after {
+        margin-top: 16px;
+    }
+    #layer {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 220px));
+        gap: 22px 16px;
+        margin-bottom: 60px;
+    }
+    #layer > div img {
+        height: 215px;
+    }
 }
